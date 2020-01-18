@@ -108,7 +108,7 @@ while true
   if qr_no > partitions
     break
   end
-  pillar = pillar + 180 * 3
+  pillar = pillar + partion_size
   qr_no += 1
 
 end
