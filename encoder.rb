@@ -3,17 +3,14 @@ require 'rmagick'
 require 'parallel'
 include Magick
 
-pdf_filename = "./resume.pdf"
-output_file = "./copy.pdf"
+filename = ARGV[0]
+output_file = "./output/" + ARGV[0]
 $image_size = 200
 
-byteArray = File.binread(pdf_filename)
-
+byteArray = File.binread(filename)
 unpacked = byteArray.unpack("H*")
 text = unpacked[0]
-
 total = text.size / 250
-s = 0
 $count = 0
 
 def getImage(text, color)
