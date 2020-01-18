@@ -75,23 +75,22 @@ end
 
 pillar = 0
 qr_no = 0
-partion_size = 300 * 3
-partitions = (text.size().to_f/(partion_size)).ceil() - 1
+partition_size = 300 * 3
+partitions = (text.size().to_f/(partition_size)).ceil() - 1
 
 def saveQR(h1, h2, h3, partitions, qr_no)
-
   images = ImageList.new
   images.push(getImage(h1, "red"))
   images.push(getImage(h2, "green"))
   images.push(getImage(h3, "blue"))
 
+  puts "(#{qr_no}/#{partitions}) generating... "
   generateRGBQR(images).write("./tmp/%08d-#{partitions}.png" % qr_no)
-
 end
 
 while true
-  utext = "(#{qr_no}/#{partitions})" + text[pillar, partion_size]
-  puts "(#{qr_no}/#{partitions})"
+  utext = "(#{qr_no}/#{partitions})" + text[pillar, partition_size]
+  puts "(#{qr_no}/#{partitions}) buffering... "
 
   text_size = utext.size()
   size_3 = (text_size / 3).floor()
@@ -100,15 +99,18 @@ while true
   h2 = utext[size_3 , size_3]
   h3 = utext[size_3 * 2, text_size]
 
-  saveQR(h1, h2, h3, partitions, qr_no)
-  
-  if qr_no > partitions
+  if qr_no == partitions
     break
   end
-  pillar = pillar + partion_size
+
+  saveQR(h1, h2, h3, partitions, qr_no)
+
+  pillar = pillar + partition_size
   qr_no += 1
 
 end
+
+# run all threads
 
 # File.open(output_file, 'wb' ) do |output|
 #   output << unpacked.pack("H*")

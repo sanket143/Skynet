@@ -8,5 +8,6 @@ if [[ $# -ge 1 ]]; then
   # Encode File
   if [[ $1 -eq "-e" ]]; then
     ruby encoder.rb $2
+    convert -delay 10 -loop 0 ./tmp/*.png rgbqr.gif
   fi
 fi

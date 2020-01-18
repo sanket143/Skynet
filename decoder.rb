@@ -6,7 +6,7 @@ require './qrengine'
 include Qrio
 include Magick
 
-captured_file = "./tmp/00000000-126.png"
+captured_file = "./tmp/00000125-125.png"
 images_obj = Image.read(captured_file).first
 
 $img_width = images_obj.columns
