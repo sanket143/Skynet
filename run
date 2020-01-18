@@ -1,0 +1,12 @@
+#!/sbin/bash
+
+mkdir -p tmp;
+mkdir -p exframes;
+
+if [[ $# -ge 1 ]]; then
+
+  # Encode File
+  if [[ $1 -eq "-e" ]]; then
+    ruby encoder.rb $2
+  fi
+fi
