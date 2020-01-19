@@ -7,6 +7,6 @@
 - [x] Decoding Regular QR Codes
 - [x] Capturing Frames
 - [x] Decode -> Merge -> File
-- [ ] Movable Frame based on the position of cursor
+- [x] Movable Frame based on the position of cursor
 - [ ] Merge -> File
 - [ ] Arrangement & Linking ( Mixing & Mastering )
