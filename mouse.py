@@ -24,9 +24,5 @@ class Clickonacci(PyMouseEvent):
                 os.write(shared_file, bytes(json.dumps(shared_obj), "utf-8"))
                 print(shared_obj)
 
-        else:  # Exit if any other mouse button used
-            shared_file.close()
-            exit()
-
 C = Clickonacci()
 C.run()
