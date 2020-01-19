@@ -5,7 +5,7 @@ import numpy
 import json
 
 with mss.mss() as sct:
-
+    print("Started Capturing Frames...")
     width = 500
     height = 500
     monitor = {'top': 0, 'left': 0, 'width': width, 'height': height}
